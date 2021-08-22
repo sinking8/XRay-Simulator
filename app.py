@@ -36,6 +36,7 @@ def login_required(test):
             return redirect(url_for('login'))
     return wrap
 '''
+
 #----------------------------------------------------------------------------#
 # Controllers.
 #----------------------------------------------------------------------------#
@@ -68,8 +69,8 @@ def forgot():
     form = ForgotForm(request.form)
     return render_template('forms/forgot.html', form=form)
 
-# Error handlers.
 
+# Error handlers.
 
 @app.errorhandler(500)
 def internal_error(error):
@@ -95,7 +96,7 @@ if not app.debug:
 # Launch.
 #----------------------------------------------------------------------------#
 
-# Default port:
+# Default port -  PORT:3000:
 if __name__ == '__main__':
     app.run()
 
