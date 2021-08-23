@@ -1,0 +1,317 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+  rel="stylesheet"
+/>
+
+<body>
+  <link rel="stylesheet" href="/static/css/style1.css" />
+  <div class="main-content">
+    <!-- Top navbar -->
+    <nav
+      class="navbar navbar-top navbar-expand-md navbar-dark"
+      id="navbar-main"
+    >
+      <div class="container-fluid">
+        <!-- Form -->
+        <form
+          class="
+            navbar-search navbar-search-dark
+            form-inline
+            mr-3
+            d-none d-md-flex
+            ml-lg-auto
+          "
+        >
+          <div class="form-group mb-0"></div>
+        </form>
+        <!-- User -->
+      </div>
+    </nav>
+    <!-- Header -->
+    <div
+      class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+      style="
+        min-height: 600px;
+        background-image: url('/static/images/logo.jpg');
+        background-size: cover;
+        background-position: center top;
+      "
+    >
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-7 col-md-10">
+            <h1 class="display-2 text-white">XRC</h1>
+            <p class="text-white mt-0 mb-5">
+              Fill up the details given below and select the disease you want to have analyzed. Finally Upload your X-Ray and receive your Report.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2"></div>
+            </div>
+            <div
+              class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"
+            >
+              <h2>INSERT X-RAY</h2>
+              <div class="d-flex justify-content-between">
+                <input
+                  type="file"
+                  class="btn btn-info"
+                  name="Upload Image"
+                  accept="image/*"
+                  onchange="loadFile(event)"
+                  placeholder="Insert Image"
+                  style="margin-left: 41px"
+                />
+              </div>
+            </div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <img id="output" />
+                <div class="col">
+                  <div
+                    class="
+                      card-profile-stats
+                      d-flex
+                      justify-content-center
+                      mt-md-5
+                    "
+                  >
+                    <a href="#!" class="btn btn-sm btn-info mr-4">Analyze</a>
+                    <a href="#!" class="btn btn-sm btn-default float-right"
+                      >Download Report</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <hr class="my-4" />
+                <p>
+                  Disclaimer: The generated report is to be considered as
+                  nothing more than a pre-diagnosis. Accurate diagnosis is
+                  subject to consultation with a doctor.
+                </p>
+                <a href="#">Back to Home </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h1 class="mb-0">My account</h1>
+                </div>
+                <div class="col-4 text-right">
+                  <a
+                    href="#!"
+                    class="btn btn-sm btn-primary"
+                    style="background-color: red"
+                    >Log Out</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-body" style="height: 825px">
+              <form>
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-username"
+                          >Name</label
+                        >
+                        <input
+                          type="text"
+                          id="input-name"
+                          class="form-control form-control-alternative"
+                          placeholder="Username"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email"
+                          >Age</label
+                        >
+                        <input
+                          type="number"
+                          id="age"
+                          class="form-control form-control-alternative"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-first-name"
+                          >Height</label
+                        >
+                        <input
+                          type="text"
+                          id="age"
+                          class="form-control form-control-alternative"
+                          placeholder="ex: 180 cms"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-last-name"
+                          >Weight</label
+                        >
+                        <input
+                          type="text"
+                          id="weight"
+                          class="form-control form-control-alternative"
+                          placeholder="ex: 75 kgs"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address"
+                          >Gender</label
+                        >
+                        <select
+                          name="gender"
+                          class="form-control form-control-alternative"
+                          id="Gender"
+                          required
+                        >
+                          <option class="option" value="title">Gender</option>
+                          <option class="option" value="Glaucoma">Male</option>
+                          <option class="option" value="Alzheimers">
+                            Female
+                          </option>
+                          <option class="option" value="Diabetes">
+                            Others
+                          </option>
+                        </select>
+                        <span class="select-btn">
+                          <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4" />
+                <!-- Address -->
+                <div class="pl-lg-4">
+                  <h6 class="heading-small text-muted mb-4">Medical History</h6>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address"
+                          >Reason for Diagnosis</label
+                        >
+                        <input
+                          id="Diagnosis"
+                          class="form-control form-control-alternative"
+                          type="text"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address"
+                          >Any Disability</label
+                        >
+                        <input
+                          id="Diagnosis"
+                          class="form-control form-control-alternative"
+                          type="text"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address"
+                          >Select Disease For Analysis</label
+                        >
+                        <select
+                          name="gender"
+                          class="form-control form-control-alternative"
+                          id="Disease"
+                          required
+                        >
+                          <option class="option" value="title">Disease</option>
+                          <option class="option" value="Glaucoma">
+                            Glaucoma
+                          </option>
+                          <option class="option" value="Alzheimers">
+                            Alzheimers
+                          </option>
+                          <option class="option" value="Diabetes">
+                            Diabetes
+                          </option>
+                        </select>
+                        <span class="select-btn">
+                          <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                      </div>
+                      <div class="row">
+                        <a
+                          type="submit"
+                          class="btn btn-info"
+                          style="
+                            position: absolute;
+                            margin-left: 3.5%;
+                            color: black;
+                          "
+                          >Submit</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>Team Gryffindor</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var loadFile = function (event) {
+      var output = document.getElementById("output");
+      output.src = URL.createObjectURL(event.target.files[0]);
+      output.onload = function () {
+        URL.revokeObjectURL(output.src); // free memory
+      };
+    };
+  </script>
+</body>

@@ -47,6 +47,11 @@ def home():
     return render_template('pages/home.html')
 
 
+@app.route("/user")
+def user():
+    return render_template('pages/user.html')
+
+
 # @app.route('/about')
 # def about():
 #     return render_template('pages/placeholder.about.html')
