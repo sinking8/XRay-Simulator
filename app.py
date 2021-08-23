@@ -46,8 +46,6 @@ def login_required(test):
 # Controllers.
 #----------------------------------------------------------------------------#
 
-user_details = {}
-
 
 @app.route('/')
 def home():
@@ -56,6 +54,7 @@ def home():
 
 @app.route("/user",methods=['GET','POST'])
 def user():
+    global user_details
     if(request.method == 'POST'):
         user_details= {
             "Name":request.form.get("name"),
@@ -75,14 +74,16 @@ def download():
     return send_from_directory(directory="./reports", filename="report.pdf")
 
 
-@app.route("/analyze_img",methods=['POST'])
+@app.route("/analyze_img",methods=['POST','GET'])
 def analyze_img():
 
     if(request.method  == 'POST'):    
         if(request.files):
+            report.refresh()
             img = request.files['image']
-            img.save(os.path.join("./images",img.filename))
+            img.save(os.path.join("./static/images",img.filename))
             user_details['Image'] = img.filename
+            print(user_details)
             report.generate_report(user_details)
             # test_img = cv2.imread(os.path.join(app.config['IMAGE_UPLOADS'], img.filename))
 

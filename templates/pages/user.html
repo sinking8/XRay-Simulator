@@ -63,11 +63,13 @@
               class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"
             >
               <h2>INSERT X-RAY</h2>
-              <div class="d-flex justify-content-between">
+              <form action="{{ url_for('analyze_img')}}" method="POST" enctype="multipart/form-data">
+              <div class="d-flex justify-content-between form-group">
                 <input
                   type="file"
-                  class="btn btn-info"
-                  name="Upload Image"
+                  class="btn btn-info form-control"
+                  name="image"
+                  id="image"
                   accept="image/*"
                   onchange="loadFile(event)"
                   placeholder="Insert Image"
@@ -87,10 +89,11 @@
                       mt-md-5
                     "
                   >
-                    <a
-                      href="{{ url_for('analyze_img')}}"
+                  
+                    <button
+                     type="submit"
                       class="btn btn-sm btn-info mr-4"
-                      >Analyze</a
+                      >Analyze</button
                     >
                     <a
                       href="{{ url_for('download') }}"
@@ -109,7 +112,7 @@
                 </p>
                 <a href="#">Back to Home </a>
               </div>
-            </div>
+            </div></form>
           </div>
         </div>
         <div class="col-xl-8 order-xl-1">

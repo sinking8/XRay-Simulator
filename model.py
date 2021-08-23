@@ -8,9 +8,9 @@ class Model:
     def __init__(self,model_dir):
         self.model = tf.keras.models.load_model(model_dir)
 
-    def predict_image(self):
+    def predict_image(self,img_dir):
         print("Its Working")
-        img = cv2.imread("./static/images/test_img.jpeg")
+        img = cv2.imread(img_dir)
         img = cv2.resize(img,(150,150))
         img = np.reshape(img,(1,150,150,3))
         print(self.model.predict(img))

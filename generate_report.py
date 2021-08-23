@@ -102,13 +102,25 @@ class Report:
             }
             )
 
-        # Logo
-        self.pdf.image('./static/images/test_img.jpeg', 110, 50, 90)
+        # Xray Image
+        print(user_details['Image'])
+        self.pdf.image(os.path.join('./static/images',user_details['Image']), 110, 50, 90)
 
         self.pdf.line(0,200,220,200)
         self.pdf.ln(16)
 
         self.pdf.output('./reports/report.pdf')
+
+    def refresh(self):
+        # format ('A3','A4','Letter','Legal')
+        self.pdf = FPDF('P','mm','A4')
+
+        # Adding a page to the pdf file
+        self.pdf.add_page()
+
+        # Setting up font
+        self.pdf.set_font('helvetica','',16)
+
 
 
 # if __name__ == '__main__':
