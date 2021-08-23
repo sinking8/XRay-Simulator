@@ -88,9 +88,7 @@
                     "
                   >
                     <a href="#!" class="btn btn-sm btn-info mr-4">Analyze</a>
-                    <a href="#!" class="btn btn-sm btn-default float-right"
-                      >Download Report</a
-                    >
+                    <a href="{{ url_for('download', filename="./reports/report.pdf") }}" class="btn btn-sm btn-default float-right">Download Report</a>
                   </div>
                 </div>
               </div>
@@ -115,7 +113,7 @@
                 </div>
                 <div class="col-4 text-right">
                   <a
-                    href="#!"
+                    href="{{ url_for('home') }}"
                     class="btn btn-sm btn-primary"
                     style="background-color: red"
                     >Log Out</a

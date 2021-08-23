@@ -3,6 +3,7 @@
 #----------------------------------------------------------------------------#
 
 from flask import Flask, render_template, request
+from flask import send_file, send_from_directory, safe_join, abort
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
@@ -51,7 +52,12 @@ def home():
 def user():
     return render_template('pages/user.html')
 
-
+@app.route('/uploads', methods=['GET', 'POST'])
+def download(filename):
+    # Appending app path to upload folder path within app root folder
+    # uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
+    # Returning file from appended path
+    return send_from_directory(directory="./reports", filename="report.pdf")
 # @app.route('/about')
 # def about():
 #     return render_template('pages/placeholder.about.html')
