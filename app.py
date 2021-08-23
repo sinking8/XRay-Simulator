@@ -2,13 +2,13 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,redirect
 from flask import send_file, send_from_directory, safe_join, abort
-# from flask.ext.sqlalchemy import SQLAlchemy
-import logging
-from logging import Formatter, FileHandler
-from forms import *
+from flask.helpers import url_for
+
+from generate_report import *
 import os
+
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -16,7 +16,11 @@ import os
 
 app = Flask(__name__)
 app.config.from_object('config')
+report = Report()
+
 #db = SQLAlchemy(app)
+
+
 
 # Automatically tear down SQLAlchemy.
 '''
@@ -42,22 +46,49 @@ def login_required(test):
 # Controllers.
 #----------------------------------------------------------------------------#
 
+user_details = {}
+
 
 @app.route('/')
 def home():
     return render_template('pages/home.html')
 
 
-@app.route("/user")
+@app.route("/user",methods=['GET','POST'])
 def user():
+    if(request.method == 'POST'):
+        user_details= {
+            "Name":request.form.get("name"),
+            "Age":request.form.get("age"),
+            "Height":request.form.get("height"),
+            "Weight":request.form.get("weight"),
+            "Gender":request.form.get("gender"),
+            "Diagnosis":request.form.get("Diagnosis"),
+            "Analysis":request.form.get("disease"),
+            "Image":""
+        }
+        return render_template('pages/user.html')
     return render_template('pages/user.html')
 
 @app.route('/uploads', methods=['GET', 'POST'])
-def download(filename):
-    # Appending app path to upload folder path within app root folder
-    # uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
-    # Returning file from appended path
+def download():
     return send_from_directory(directory="./reports", filename="report.pdf")
+
+
+@app.route("/analyze_img",methods=['POST'])
+def analyze_img():
+
+    if(request.method  == 'POST'):    
+        if(request.files):
+            img = request.files['image']
+            img.save(os.path.join("./images",img.filename))
+            user_details['Image'] = img.filename
+            report.generate_report(user_details)
+            # test_img = cv2.imread(os.path.join(app.config['IMAGE_UPLOADS'], img.filename))
+
+    return redirect('user')
+
+
 # @app.route('/about')
 # def about():
 #     return render_template('pages/placeholder.about.html')

@@ -15,6 +15,6 @@ class Model:
         img = np.reshape(img,(1,150,150,3))
         print(self.model.predict(img))
 
-if __name__ == "__main__":
-    model = Model("./static/model/model.h5")
-    model.predict_image()
+# if __name__ == "__main__":
+#     model = Model("./static/model/model.h5")
+#     model.predict_image()

@@ -87,8 +87,16 @@
                       mt-md-5
                     "
                   >
-                    <a href="#!" class="btn btn-sm btn-info mr-4">Analyze</a>
-                    <a href="{{ url_for('download', filename="./reports/report.pdf") }}" class="btn btn-sm btn-default float-right">Download Report</a>
+                    <a
+                      href="{{ url_for('analyze_img')}}"
+                      class="btn btn-sm btn-info mr-4"
+                      >Analyze</a
+                    >
+                    <a
+                      href="{{ url_for('download') }}"
+                      class="btn btn-sm btn-default float-right"
+                      >Download Report</a
+                    >
                   </div>
                 </div>
               </div>
@@ -122,7 +130,7 @@
               </div>
             </div>
             <div class="card-body" style="height: 825px">
-              <form>
+              <form method="POST" action="{{ url_for('user') }}">
                 <h6 class="heading-small text-muted mb-4">User information</h6>
                 <div class="pl-lg-4">
                   <div class="row">
@@ -133,7 +141,8 @@
                         >
                         <input
                           type="text"
-                          id="input-name"
+                          id="name"
+                          name="name"
                           class="form-control form-control-alternative"
                           placeholder="Username"
                           required
@@ -148,6 +157,7 @@
                         <input
                           type="number"
                           id="age"
+                          name="age"
                           class="form-control form-control-alternative"
                           required
                         />
@@ -162,7 +172,8 @@
                         >
                         <input
                           type="text"
-                          id="age"
+                          id="height"
+                          name="height"
                           class="form-control form-control-alternative"
                           placeholder="ex: 180 cms"
                           required
@@ -177,6 +188,7 @@
                         <input
                           type="text"
                           id="weight"
+                          name="weight"
                           class="form-control form-control-alternative"
                           placeholder="ex: 75 kgs"
                           required
@@ -191,7 +203,7 @@
                         <select
                           name="gender"
                           class="form-control form-control-alternative"
-                          id="Gender"
+                          id="gender"
                           required
                         >
                           <option class="option" value="title">Gender</option>
@@ -222,6 +234,7 @@
                         >
                         <input
                           id="Diagnosis"
+                          name="Diagnosis"
                           class="form-control form-control-alternative"
                           type="text"
                           required
@@ -236,9 +249,10 @@
                           >Any Disability</label
                         >
                         <input
-                          id="Diagnosis"
+                          id="Disability"
                           class="form-control form-control-alternative"
                           type="text"
+                          name="Disability"
                           required
                         />
                       </div>
@@ -251,9 +265,9 @@
                           >Select Disease For Analysis</label
                         >
                         <select
-                          name="gender"
+                          name="disease"
                           class="form-control form-control-alternative"
-                          id="Disease"
+                          id="disease"
                           required
                         >
                           <option class="option" value="title">Disease</option>
@@ -272,7 +286,7 @@
                         </span>
                       </div>
                       <div class="row">
-                        <a
+                        <button
                           type="submit"
                           class="btn btn-info"
                           style="
@@ -280,8 +294,9 @@
                             margin-left: 3.5%;
                             color: black;
                           "
-                          >Submit</a
                         >
+                          Submit
+                        </button>
                       </div>
                     </div>
                   </div>
