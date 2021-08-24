@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Carousel 01</title>
+    <title>XRC Homepage</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -13,21 +13,21 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/static/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="./static/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="./static/css/owl.theme.default.min.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css"
     />
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="./static/css/style.css" />
   </head>
-  <body style="overflow: hidden">
+  <body>
     <div class="home-slider owl-carousel js-fullheight">
       <div
         class="slider-item js-fullheight"
         style="
-          background-image: url(/static/images/slider-1.jpg);
-          overflow: hidden;
+          background-image: url(./static/images/slider-1.jpg);
+          overflow: scroll;
         "
       >
         <div class="overlay"></div>
@@ -87,7 +87,13 @@
                           >
                         </div>
                         <div class="group">
-                          <input type="text" class="button" value="Sign In" />
+                          <a
+                            type="submit"
+                            href="XRC.html"
+                            class="button"
+                            value="Sign In"
+                            >Sign In</a
+                          >
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">
@@ -138,7 +144,7 @@
 
       <div
         class="slider-item js-fullheight"
-        style="background-image: url(/static/images/2.png)"
+        style="background-image: url(./static/images/2.png)"
       >
         <div class="overlay"></div>
         <div class="container">
@@ -168,7 +174,7 @@
 
       <div
         class="slider-item js-fullheight"
-        style="background-image: url(/static/images/1.jpg)"
+        style="background-image: url(./static/images/1.jpg)"
       >
         <div class="overlay"></div>
         <div class="container">
@@ -296,6 +302,7 @@
         background: rgba(255, 255, 255, 0.1);
       }
       .login-form .group input[data-type="password"] {
+        text-security: circle;
         -webkit-text-security: circle;
       }
       .login-form .group .label {
@@ -368,10 +375,10 @@
       }
     </style>
 
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/popper.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/js/owl.carousel.min.js"></script>
-    <script src="/static/js/main.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
