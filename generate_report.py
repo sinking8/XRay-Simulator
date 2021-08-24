@@ -14,6 +14,21 @@ class Report:
     # inx declaration
     inx = 60
 
+    # Preds_Labels
+    preds_dict = {
+        0:"CNV",
+        1:"DME",
+        2:"DRUSEN",
+        3:"Glaucoma_Negative",
+        4:"Glaucoma_Positive",
+        5:"MildDemented",
+        6:"ModerateDemented",
+        7:"NORMAL",
+        8:"NonDemented",
+        9:"VeryMildDemented"}
+    #Preds_Inverse
+    preds_inverse_dict = {'CNV': 0, 'DME': 1, 'DRUSEN': 2, 'Glaucoma_Negative': 3, 'Glaucoma_Positive': 4, 'MildDemented': 5, 'ModerateDemented': 6, 'NORMAL': 7, 'NonDemented': 8, 'VeryMildDemented': 9}
+
     def __init__(self):
         # format ('A3','A4','Letter','Legal')
         self.pdf = FPDF('P','mm','A4')
@@ -91,7 +106,7 @@ class Report:
         self.pdf.ln(16)
         
         preds = self.model.predict_image(os.path.join("./static/images",user_details['Image']))
-        print(preds)
+        print(self.preds_dict[preds+1])
 
         self.insert_text(
             {
