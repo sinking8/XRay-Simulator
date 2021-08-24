@@ -27,7 +27,7 @@ class Report:
         8:"NonDemented",
         9:"VeryMildDemented"}
     #Preds_Inverse
-    preds_inverse_dict = {'CNV': 0, 'DME': 1, 'DRUSEN': 2, 'Glaucoma_Negative': 3, 'Glaucoma_Positive': 4, 'MildDemented': 5, 'ModerateDemented': 6, 'NORMAL': 7, 'NonDemented': 8, 'VeryMildDemented': 9}
+    preds_inverse_dict = {'CNV': "CNV Positive", 'DME': "DME Positive", 'DRUSEN':"DRUSEN Positive", 'Glaucoma_Negative': "Tested Negative for Glaucoma", 'Glaucoma_Positive': "Tested Positive for Glaucoma", 'MildDemented': "Tested MildDemented Alzheimer", 'ModerateDemented': "Tested ModerateDemented Alzheimer", 'NORMAL': "Tested Negative for Glaucoma", 'NonDemented': "Tested Negative for Alzheimers", 'VeryMildDemented': "Tested VeryMildDemented Alzheimers"}
 
     def __init__(self):
         # format ('A3','A4','Letter','Legal')
@@ -104,14 +104,14 @@ class Report:
         self.pdf.line(0,120,220,120)
         self.pdf.ln(16)
         
-        # preds = self.model.predict_image(os.path.join("./static/images",user_details['Image']))
+        preds = self.model.predict_image(os.path.join("./static/images",user_details['Image']))
         # print(self.preds_dict[preds+1])
 
         self.insert_text(
             {
                 "Reason for Diagnosis":user_details["Diagnosis"],
                 "Disease for Analysis":user_details["Analysis"],
-                "Analysis":"Tested Positive for Glaucoma"
+                "Analysis":self.preds_inverse_dict[preds]
             }
             )
 

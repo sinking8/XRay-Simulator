@@ -33,21 +33,22 @@ class Model:
         [5,6,8,9]
     }
 
-    def __init__(self,model_dir,subcat="Glaucoma"):
+    def __init__(self,model_dir):
         self.model = tf.keras.models.load_model(model_dir)
 
-    def predict_image(self,img_dir,subcat):
+    def predict_image(self,img_dir,subcat="Glaucoma"):
         # print("Its Working")
         img = cv2.imread(img_dir)
         img = cv2.resize(img,(150,150))
         img = np.reshape(img,(1,150,150,3))
 
         preds = self.model.predict(img)
-        preds = tf.nn.softmax(preds)
+        preds = list(tf.nn.softmax(preds).numpy()[0])
 
-        max_pred = preds[0].index(max([preds[inx] for inx in self.subcats[subcat]]))
+        max_pred = preds.index(max([preds[inx] for inx in self.subcats[subcat]]))
         
-        print(preds_dict[max_pred])
+        # print(self.preds_dict[max_pred])
+        return self.preds_dict[max_pred]
 
         # for categories in self.subcats[subcat]
 
