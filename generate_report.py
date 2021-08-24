@@ -97,7 +97,6 @@ class Report:
                 "Height":user_details["Height"],
                 "Weight":user_details["Weight"],
                 "Gender":user_details["Gender"],
-                
                 }
                 )
 
@@ -113,7 +112,6 @@ class Report:
                 "Reason for Diagnosis":user_details["Diagnosis"],
                 "Disease for Analysis":user_details["Analysis"],
                 "Analysis":"Tested Positive for Glaucoma"
-
             }
             )
 
