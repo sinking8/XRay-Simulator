@@ -105,8 +105,8 @@ class Report:
         self.pdf.line(0,120,220,120)
         self.pdf.ln(16)
         
-        preds = self.model.predict_image(os.path.join("./static/images",user_details['Image']))
-        print(self.preds_dict[preds+1])
+        # preds = self.model.predict_image(os.path.join("./static/images",user_details['Image']))
+        # print(self.preds_dict[preds+1])
 
         self.insert_text(
             {
