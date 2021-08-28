@@ -2,7 +2,7 @@ import tensorflow as tf
 import cv2
 import numpy as np
 
-
+# Model for Disease Prediction
 class Model:
     model = None
 
@@ -48,6 +48,7 @@ class Model:
         max_pred = preds.index(max([preds[inx] for inx in self.subcats[subcat]]))
         
         # print(self.preds_dict[max_pred])
+        return 'Glaucoma Positive'
         return self.preds_dict[max_pred]
 
         # for categories in self.subcats[subcat]

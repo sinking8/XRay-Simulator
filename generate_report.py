@@ -96,7 +96,7 @@ class Report:
                 "Age":user_details["Age"],
                 "Height":user_details["Height"],
                 "Weight":user_details["Weight"],
-                "Gender":user_details["Gender"],
+                "Gender":"Male",
                 }
                 )
 
@@ -111,7 +111,7 @@ class Report:
             {
                 "Reason for Diagnosis":user_details["Diagnosis"],
                 "Disease for Analysis":user_details["Analysis"],
-                "Analysis":self.preds_inverse_dict[preds]
+                "Analysis":preds
             }
             )
 
